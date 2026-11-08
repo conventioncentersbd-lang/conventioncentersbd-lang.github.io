@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="VPK64FSfAqkD-t-2IRiDxAKJJmYg3qU0gq_UNR5oRus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convention Centers Bangladesh (CCBD) | Find the Perfect Venue</title>
+    <link rel="icon" href="https://iili.io/fsG7wep.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://iili.io/fsGxDjs.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================================
+           Convention Centers Bangladesh (CCBD) — Design System
+           Direction: "Grand Hall" — deep teal & antique gold, arch
+           motifs drawn from the city's banquet-hall architecture.
+           ============================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        :root {
+            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+            /* Core palette */
+            --ink: #201014;
+            --primary: #7a0c14;            /* deep venue red */
+            --primary-light: #9c1620;
+            --secondary: #b3202b;          /* bright red accent */
+            --gold: #c81d2c;               /* signature red */
+            --gold-light: #ffc9ce;
+            --gold-dark: #8c0f16;
+            --accent: #c14a4a;             /* warm brick-rose CTA */
+            --accent-dark: #a13939;
+            --ivory: #fff8f8;
+            --paper: #ffffff;
+            --stone: #6d6558;
+            --stone-light: #ded4c2;
+            --success: #2f7d5e;
+
+            /* Legacy aliases kept so nothing in markup/JS breaks */
+            --light: #f3ede0;
+            --dark: #17262a;
+            --gray: #6d6558;
+            --gray-light: #ded4c2;
+
+            --shadow-sm: 0 1px 3px rgba(18, 38, 42, 0.08);
+            --shadow: 0 6px 16px rgba(18, 38, 42, 0.10);
+            --shadow-lg: 0 14px 32px rgba(18, 38, 42, 0.14);
+            --shadow-xl: 0 26px 55px rgba(18, 38, 42, 0.20);
+            --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--ivory);
+        }
+
+        body {
+            color: var(--ink);
+            background-color: var(--ivory);
+            line-height: 1.65;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--gold-light);
+            color: var(--ink);
+        }
+
+        /* ---------------- Header & Navigation ---------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(250, 246, 236, 0.9);
+            border-bottom: 1px solid rgba(18, 38, 42, 0.08);
+            z-index: 1000;
+            padding: 0.9rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: -0.2px;
+        }
+
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 4px rgba(200, 29, 44, 0.18);
+        }
+
+        .logo i {
+            color: var(--gold);
+            font-size: 1.7rem;
+        }
+
+        .logo-short {
+            display: none;
+        }
+
+        .site-logo {
+            height: 40px;
+            width: auto;
+            display: inline-block;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(18, 38, 42, 0.12);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+            letter-spacing: 0.2px;
+        }
+
+        nav a:hover {
+            color: var(--gold-dark);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            min-width: 32px;
+            min-height: 32px;
+        }
+
+        /* ---------------- Hero Section ---------------- */
+        .hero {
+            min-height: 92vh;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(200, 29, 44, 0.16), transparent 45%),
+                linear-gradient(160deg, rgba(32, 16, 20, 0.92), rgba(122, 12, 20, 0.86)),
+                url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 1rem 6rem;
+            margin-top: 68px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(90deg, rgba(255, 201, 206, 0.06) 0 1px, transparent 1px 90px);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            /* arch silhouette signature at base of hero */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -1px;
+            transform: translateX(-50%);
+            width: 560px;
+            max-width: 92vw;
+            height: 130px;
+            background: var(--ivory);
+            border-radius: 280px 280px 0 0;
+            box-shadow: 0 -30px 60px rgba(32, 16, 20, 0.35) inset;
+        }
+
+        .hero-content {
+            max-width: 780px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--gold-light);
+            opacity: 0.7;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            margin-bottom: 1.3rem;
+            line-height: 1.05;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: -1px;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--gold-light);
+        }
+
+        .hero p {
+            font-family: var(--font-sans);
+            font-size: 1.12rem;
+            margin: 0 auto 2.4rem;
+            max-width: 560px;
+            opacity: 0.92;
+            font-weight: 400;
+            color: rgba(255,255,255,0.92);
+            letter-spacing: 0.1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #ffffff;
+            padding: 1rem 2.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 26px rgba(200, 29, 44, 0.35);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            transform: translateY(-3px);
+            box-shadow: 0 16px 34px rgba(200, 29, 44, 0.45);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* ---------------- Search & Filter Section ---------------- */
+        .filter-section {
+            padding: 4.5rem 5% 3rem;
+            background-color: var(--paper);
+            border-bottom: 1px solid var(--stone-light);
+            position: relative;
+        }
+
+        .filter-section > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            display: block;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            margin: 1.3rem auto 2.6rem;
+            width: 56px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .search-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-end;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input, .filter-dropdown select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1.5px solid var(--stone-light);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background-color: var(--ivory);
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .search-box input::placeholder {
+            color: var(--stone);
+            font-weight: 400;
+        }
+
+        .search-box input:focus, .filter-dropdown select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(200, 29, 44, 0.15);
+            background-color: white;
+        }
+
+        /* Autocomplete Suggestions */
+        .autocomplete-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--stone-light);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            margin-top: -1px;
+        }
+
+        .autocomplete-suggestions.active {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--stone-light);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background-color: var(--ivory);
+        }
+
+        .suggestion-item i {
+            color: var(--gold-dark);
+            font-size: 0.95rem;
+        }
+
+        .suggestion-item .suggestion-name {
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.1px;
+        }
+
+        .suggestion-item .suggestion-details {
+            font-size: 0.8rem;
+            color: var(--stone);
+            margin-left: auto;
+        }
+
+        .suggestion-item .suggestion-area {
+            font-size: 0.72rem;
+            color: white;
+            background: var(--primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .filter-dropdown {
+            flex: 0 1 200px;
+        }
+
+        .filter-dropdown label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 0.82rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .sort-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .favorites-count {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-view-favorites {
+            background: var(--ink);
+            color: var(--gold-light);
+            padding: 0.85rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+            letter-spacing: 0.2px;
+        }
+
+        .btn-view-favorites:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-view-favorites.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 8px 20px rgba(193, 74, 74, 0.35);
+        }
+
+        .btn-view-favorites.active:hover {
+            background: var(--accent-dark);
+        }
+
+        /* ---------------- Convention Centers Listing ---------------- */
+        .centers-section {
+            padding: 1.5rem 5% 5rem;
+            background-color: var(--ivory);
+        }
+
+        .centers-section > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .centers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .centers-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .centers-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .center-card {
+            background-color: var(--paper);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(18, 38, 42, 0.06);
+        }
+
+        .center-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--gold);
+        }
+
+        .center-card.highlight {
+            box-shadow: 0 0 0 3px rgba(200, 29, 44, 0.55), var(--shadow-xl);
+            border-color: var(--gold);
+        }
+
+        .card-title-header {
+            min-height: 132px;
+            background: linear-gradient(150deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.2rem 1.6rem 1.6rem;
+            text-align: center;
+            border-radius: 0 0 90px 90px / 0 0 42px 42px;
+        }
+
+        .card-title-header::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(255, 201, 206, 0.28);
+            border-radius: 0 0 76px 76px / 0 0 34px 34px;
+            pointer-events: none;
+        }
+
+        .card-title-logo {
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 1.28rem;
+            font-weight: 600;
+            line-height: 1.32;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-favorite {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background-color: rgba(255, 255, 255, 0.92);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            transition: var(--transition);
+            z-index: 2;
+            color: var(--stone-light);
+            font-size: 1.1rem;
+        }
+
+        .card-favorite:hover {
+            transform: scale(1.12);
+            background-color: white;
+        }
+
+        .card-favorite.active {
+            color: var(--accent);
+            background: white;
+            box-shadow: 0 6px 16px rgba(193, 74, 74, 0.3);
+        }
+
+        .card-content {
+            padding: 1.6rem 1.75rem 1.85rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin-bottom: 0.9rem;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.2px;
+            font-family: var(--font-serif);
+        }
+
+        .card-rating {
+            background: var(--success);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+        }
+
+        .card-rating i {
+            color: var(--gold-light);
+        }
+
+        .card-details {
+            margin-bottom: 1.3rem;
+            border-top: 1px dashed var(--stone-light);
+            padding-top: 1.1rem;
+        }
+
+        .card-detail {
+            display: flex;
+            margin-bottom: 0.8rem;
+            align-items: flex-start;
+            color: var(--stone);
+            font-size: 0.92rem;
+        }
+
+        .card-detail a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .card-detail i {
+            color: var(--gold-dark);
+            margin-right: 0.8rem;
+            margin-top: 0.15rem;
+            min-width: 16px;
+            font-size: 0.95rem;
+        }
+
+        .card-price {
+            font-weight: 700;
+            color: var(--accent-dark);
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.2px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .card-btn {
+            flex: 1;
+            padding: 0.85rem 0.7rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(193, 74, 74, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(193, 74, 74, 0.35);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(122, 12, 20, 0.25);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(122, 12, 20, 0.35);
+        }
+
+        /* ---------------- Map Modal ---------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(32, 16, 20, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            transform: scale(0.95) translateY(20px);
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.4rem 2rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: scale(1.08);
+        }
+
+        .modal-body {
+            padding: 0;
+            height: 500px;
+        }
+
+        .modal-map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ---------------- Footer ---------------- */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.85);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            display: block;
+            width: 64px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(255, 201, 206, 0.12);
+        }
+
+        .footer-social a:hover {
+            color: var(--ink);
+            background-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact a {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-contact a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.82rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            width: 100%;
+            letter-spacing: 0.2px;
+            font-family: var(--font-mono);
+        }
+
+        /* ---------------- Scroll to top button ---------------- */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 52px;
+            height: 52px;
+            background: var(--ink);
+            color: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+            border: none;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ---------------- Responsive adjustments ---------------- */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.9rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            nav ul {
+                gap: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.85rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+                gap: 0.55rem;
+            }
+
+            .logo i {
+                font-size: 1.5rem;
+            }
+
+            .logo-full {
+                display: none;
+            }
+
+            .logo-short {
+                display: inline;
+                font-family: var(--font-mono);
+                letter-spacing: 1px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 66px;
+                left: 0;
+                width: 100%;
+                background-color: var(--paper);
+                box-shadow: var(--shadow-lg);
+                padding: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .hero {
+                padding: 7rem 1rem 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box, .filter-dropdown {
+                min-width: 100%;
+            }
+
+            .sort-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .centers-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* ---------------- Loading animation ---------------- */
+        .loading {
+            display: block;
+            width: 46px;
+            height: 46px;
+            border: 4px solid var(--stone-light);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ---------------- No results message ---------------- */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            grid-column: 1 / -1;
+            color: var(--stone);
+        }
+
+        .no-results i {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--stone-light);
+            opacity: 0.8;
+        }
+
+        .no-results h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--ink);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .no-results p {
+            font-size: 1rem;
+            color: var(--stone);
+        }
+
+        /* ---------------- Chatbot (AI Venue Helper) ---------------- */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border: none;
+            background: var(--ink);
+            color: var(--gold-light);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1200;
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: translateY(-4px) scale(1.03);
+            background: var(--primary);
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 102px;
+            right: 20px;
+            width: 360px;
+            max-width: 95vw;
+            max-height: 70vh;
+            background: var(--paper);
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1300;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--stone-light);
+        }
+
+        .chatbot-window.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.9rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .chatbot-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 201, 206, 0.2);
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-title {
+            font-weight: 700;
+            font-size: 0.96rem;
+            font-family: var(--font-serif);
+        }
+
+        .chatbot-status {
+            font-size: 0.72rem;
+            opacity: 0.85;
+        }
+
+        .chatbot-close-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            padding: 0.85rem 0.85rem 0.6rem;
+            overflow-y: auto;
+            flex: 1;
+            background: var(--ivory);
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 0.6rem;
+        }
+
+        .chat-message.bot {
+            justify-content: flex-start;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            border-radius: 14px;
+            padding: 0.6rem 0.8rem;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chat-bubble.bot {
+            background: #ffffff;
+            color: var(--ink);
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--stone-light);
+        }
+
+        .chat-bubble.user {
+            background: var(--accent);
+            color: #ffffff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chatbot-quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.4rem 0 0.2rem;
+        }
+
+        .chatbot-chip {
+            border: 1px solid var(--stone-light);
+            border-radius: 999px;
+            padding: 0.3rem 0.7rem;
+            font-size: 0.76rem;
+            cursor: pointer;
+            background: white;
+            color: var(--primary);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .chatbot-chip:hover {
+            background: var(--gold-light);
+            border-color: var(--gold);
+        }
+
+        .chatbot-footer {
+            border-top: 1px solid var(--stone-light);
+            padding: 0.55rem 0.65rem;
+            background: #ffffff;
+        }
+
+        .chatbot-input-row {
+            display: flex;
+            gap: 0.45rem;
+            align-items: center;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            border-radius: 999px;
+            border: 1px solid var(--stone-light);
+            padding: 0.45rem 0.75rem;
+            font-size: 0.88rem;
+            background: var(--ivory);
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(200, 29, 44, 0.2);
+            background: white;
+        }
+
+        .chatbot-send-btn {
+            border-radius: 999px;
+            border: none;
+            padding: 0.4rem 0.85rem;
+            background: var(--accent);
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-send-btn:hover {
+            background: var(--accent-dark);
+        }
+
+        .chatbot-send-btn i {
+            font-size: 0.78rem;
+        }
+
+        .chatbot-helper-text {
+            font-size: 0.68rem;
+            color: var(--stone);
+            margin-top: 0.2rem;
+            text-align: left;
+        }
+
+        .chat-suggestion-list {
+            margin-top: 0.35rem;
+        }
+
+        .chat-suggestion-item {
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+            padding-left: 0.1rem;
+        }
+
+        .chat-suggestion-item strong {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-window {
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-width: unset;
+                bottom: 90px;
+            }
+
+            .chatbot-toggle {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+            <img src="https://iili.io/fsGxDjs.png" alt="Convention Centers Bangladesh (CCBD)" class="site-logo">
+            <span class="logo-full">Convention Centers Bangladesh <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.85rem;font-weight:600;letter-spacing:1px;">CCBD</span></span>
+            <span class="logo-short">CCBD</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#centers">Convention Centers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Convention Centers Bangladesh</div>
+            <h1>Grand venues for<br><em>every occasion</em></h1>
+            <p>Discover and book the finest halls across Chattagram for weddings, seminars, corporate events, and celebrations</p>
+            <a href="#centers" class="btn">View Centers</a>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="filter-section" id="centers">
+        <h2 class="section-title">Find Your Perfect Venue</h2>
+        <div class="search-container">
+            <div class="search-box">
+                <label for="searchInput">Search by Name or Area</label>
+                <input type="text" id="searchInput" placeholder="Enter venue name or location..." autocomplete="off">
+                <div class="autocomplete-suggestions" id="autocompleteSuggestions"></div>
+            </div>
+            <div class="filter-dropdown">
+                <label for="areaFilter">Area</label>
+                <select id="areaFilter">
+                    <option value="">All Areas</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+            <div class="filter-dropdown">
+                <label for="ratingFilter">Minimum Rating</label>
+                <select id="ratingFilter">
+                    <option value="">All Ratings</option>
+                    <option value="4.5">4.5+ Stars</option>
+                    <option value="4.0">4.0+ Stars</option>
+                    <option value="3.5">3.5+ Stars</option>
+                    <option value="3.0">3.0+ Stars</option>
+                </select>
+            </div>
+            <div class="filter-dropdown">
+                <label for="priceFilter">Price Range</label>
+                <select id="priceFilter">
+                    <option value="">All Prices</option>
+                    <option value="low">Low (Under ৳50,000)</option>
+                    <option value="medium">Medium (৳50,000 - ৳100,000)</option>
+                    <option value="high">High (Above ৳100,000)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="sort-container">
+            <div class="filter-dropdown">
+                <label for="sortSelect">Sort By</label>
+                <select id="sortSelect">
+                    <option value="name">Name (A-Z)</option>
+                    <option value="rating">Rating (High to Low)</option>
+                    <option value="price-low">Price (Low to High)</option>
+                    <option value="price-high">Price (High to Low)</option>
+                </select>
+            </div>
+            <button id="viewFavoritesBtn" class="btn-view-favorites" title="View your favorite centers">
+                <i class="fas fa-heart"></i> View Favorites (<span id="favoritesTotal">0</span>)
+            </button>
+            <div class="favorites-count" id="favoritesCount" style="display: none;">
+                <i class="fas fa-heart"></i>
+                <span id="favoritesTotal">0</span> Favorites
+            </div>
+        </div>
+    </section>
+
+    <!-- Convention Centers Listing -->
+    <section class="centers-section">
+        <div class="centers-grid" id="centersGrid">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Map Modal -->
+    <div class="modal-overlay" id="mapModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">View on Map</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="modal-map" id="modalMap" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Verification Notice -->
+    <section style="background:#f3ede0;border-top:1px solid var(--stone-light,#ded4c2);border-bottom:1px solid var(--stone-light,#ded4c2);padding:1.2rem 5%;font-size:0.88rem;color:#5c4a1f;">
+        <div style="max-width:1200px;margin:0 auto;line-height:1.5;">
+            <strong style="color:var(--gold-dark,#8c0f16);">Data verification notice:</strong> The venue details on this website are collected from public and manual sources. Some information may be outdated or inaccurate. Please always call the venue directly to confirm current rent, facilities, and availability before making a final decision.
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Convention Centers Bangladesh (CCBD)</div>
+            <p style="max-width:480px;margin:0 auto 2rem;color:rgba(255,255,255,0.6);font-size:0.92rem;">Your guide to the finest banquet halls and convention venues across Chattagram.</p>
+            <div class="copyright">
+                &copy; 2026 Convention Centers Bangladesh (CCBD). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Venue Helper Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open venue helper chat">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow" aria-label="Venue helper chat window">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <div class="chatbot-title">Venue Helper AI</div>
+                    <div class="chatbot-status">Always-on helper for Chattogram venues</div>
+                </div>
+            </div>
+            <button class="chatbot-close-btn" id="chatbotClose" aria-label="Close chat">
+                &times;
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages" aria-live="polite"></div>
+        <div class="chatbot-footer">
+            <div class="chatbot-input-row">
+                <input
+                    type="text"
+                    id="chatbotInput"
+                    class="chatbot-input"
+                    placeholder="Type here... for example: 'Cheap hall in Agrabad'"
+                    autocomplete="off"
+                >
+                <button class="chatbot-send-btn" id="chatbotSend">
+                    <span>Send</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chatbot-helper-text">
+                You can also tap the blue buttons the assistant shows. Very simple – even kids can use it.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Convention centers data (50 venues) - Complete data from PDF
+        const conventionCenters = [
+            {
+                id: 1,
+                name: "Radisson Blu Bay View (Mezbaan Hall)",
+                address: "SS Khaled Road, Lalkhan Bazar, Chattogram",
+                phone: "09612-600800",
+                rating: 4.6,
+                rent: "৳3,00,000+",
+                area: "SS Khaled Road",
+                mapLink: "https://www.google.com/maps?q=Radisson+Blu+Mezbaan+Hall+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Premium"
+            },
+            {
+                id: 2,
+                name: "Radisson Blu Bay View (Mohona Hall)",
+                address: "SS Khaled Road, Lalkhan Bazar, Chattogram",
+                phone: "09612-600800",
+                rating: 4.6,
+                rent: "৳1,50,000+",
+                area: "SS Khaled Road",
+                mapLink: "https://www.google.com/maps?q=Radisson+Blu+Mohona+Hall+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Premium"
+            },
+            {
+                id: 3,
+                name: "The King of Chittagong",
+                address: "Panchlaish R/A, Panchlaish, Chattogram",
+                phone: "01819-311211",
+                rating: 4.2,
+                rent: "৳1,80,000 - 2,50,000",
+                area: "Panchlaish",
+                mapLink: "https://www.google.com/maps?q=The+King+of+Chittagong+Panchlaish",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 4,
+                name: "GEC Convention Center",
+                address: "GEC Circle, CDA Avenue, Chattogram",
+                phone: "01711-561430",
+                rating: 3.8,
+                rent: "৳1,20,000 - 2,00,000",
+                area: "GEC Circle",
+                mapLink: "https://www.google.com/maps?q=GEC+Convention+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 5,
+                name: "Navy Convention Center (Tigerpass)",
+                address: "Tigerpass Circle, Ambagan Rd, Chattogram",
+                phone: "01769-726435",
+                rating: 4.4,
+                rent: "৳1,00,000 - 1,80,000",
+                area: "Tigerpass",
+                mapLink: "https://www.google.com/maps?q=Navy+Convention+Center+Tigerpass+Chattogram",
+                photo: "https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Premium"
+            },
+            {
+                id: 6,
+                name: "Navy Convention Center (Sagorika)",
+                address: "Sagorika Road, Pahartali, Chattogram",
+                phone: "01769-726436",
+                rating: 4.3,
+                rent: "৳80,000 - 1,50,000",
+                area: "Sagorika",
+                mapLink: "https://www.google.com/maps?q=Navy+Convention+Center+Sagorika+Chattogram",
+                photo: "https://images.unsplash.com/photo-1567446537710-0e9b8d4d8c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 7,
+                name: "The Peninsula Chittagong (Zabeer)",
+                address: "GEC Circle, CDA Avenue, Chattogram",
+                phone: "031-2850860",
+                rating: 4.5,
+                rent: "৳1,50,000+",
+                area: "GEC Circle",
+                mapLink: "https://www.google.com/maps?q=The+Peninsula+Chittagong+Zabeer",
+                photo: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Hotel Ballroom"
+            },
+            {
+                id: 8,
+                name: "Hotel Agrabad (Ichamati)",
+                address: "Sabder Ali Road, Agrabad C/A, Chattogram",
+                phone: "031-713311",
+                rating: 4.1,
+                rent: "৳1,00,000+",
+                area: "Agrabad",
+                mapLink: "https://www.google.com/maps?q=Hotel+Agrabad+Ichamati+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Hotel Ballroom"
+            },
+            {
+                id: 9,
+                name: "Hotel Agrabad (Karnaphuli)",
+                address: "Patenga Road, near Airport, Chattogram",
+                phone: "01769-752101",
+                rating: 4.5,
+                rent: "৳50,000 - 1,20,000",
+                area: "Agrabad",
+                mapLink: "https://www.google.com/maps?q=Hotel+Agrabad+Karnaphuli+Chattogram",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Hotel Ballroom"
+            },
+            {
+                id: 10,
+                name: "Chittagong Boat Club Convention Center",
+                address: "Nasirabad Housing Society, Patenga, Chattogram",
+                phone: "01841-224466",
+                rating: 4.0,
+                rent: "৳80,000 - 1,30,000",
+                area: "Patenga",
+                mapLink: "https://www.google.com/maps?q=Chittagong+Boat+Club+Convention+Center",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Premium"
+            },
+            {
+                id: 11,
+                name: "Army Welfare Trust Milonayaton",
+                address: "Agrabad Access Road, Cantonment, Chattogram",
+                phone: "01819-314643",
+                rating: 3.9,
+                rent: "৳60,000 - 90,000",
+                area: "Cantonment",
+                mapLink: "https://www.google.com/maps?q=Army+Welfare+Trust+Milonayaton+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Institutional"
+            },
+            {
+                id: 12,
+                name: "Kisholoy Community Center",
+                address: "328 Pachlaish Road, Katalgonj, Chattogram",
+                phone: "031-653014",
+                rating: 3.9,
+                rent: "৳45,000 - 65,000",
+                area: "Katalgonj",
+                mapLink: "https://www.google.com/maps?q=Kisholoy+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Popular"
+            },
+            {
+                id: 13,
+                name: "Shoronika Community Centre",
+                address: "13 Love Lane, Chattogram",
+                phone: "01723-022892",
+                rating: 3.7,
+                rent: "৳40,000 - 60,000",
+                area: "Love Lane",
+                mapLink: "https://www.google.com/maps?q=Shoronika+Community+Centre+Chattogram",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Popular"
+            },
+            {
+                id: 14,
+                name: "Shugandha Community Center",
+                address: "Nasirabad, Chattogram",
+                phone: "01711-748965",
+                rating: 4.1,
+                rent: "৳70,000 - 1,20,000",
+                area: "Panchlaish",
+                mapLink: "https://www.google.com/maps?q=Shugandha+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Popular"
+            },
+            {
+                id: 15,
+                name: "Spectra Convention Centre",
+                address: "Bahaddarhat, Chattogram",
+                phone: "01817-703351",
+                rating: 3.9,
+                rent: "৳80,000 - 1,30,000",
+                area: "Bahaddarhat",
+                mapLink: "https://www.google.com/maps?q=Spectra+Convention+Centre+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 16,
+                name: "K Square Convention Center",
+                address: "Nasirabad Housing Society, Nasirabad, Chattogram",
+                phone: "01713-104444",
+                rating: 4.0,
+                rent: "৳70,000 - 1,20,000",
+                area: "Nasirabad",
+                mapLink: "https://www.google.com/maps?q=K+Square+Convention+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 17,
+                name: "Shohag Community Center",
+                address: "Chawkbazar, Chattogram",
+                phone: "01819-325544",
+                rating: 3.6,
+                rent: "৳35,000 - 50,000",
+                area: "Chawkbazar",
+                mapLink: "https://www.google.com/maps?q=Shohag+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 18,
+                name: "Rupnagar Community Center",
+                address: "Bakalia, Chattogram",
+                phone: "01711-384422",
+                rating: 3.5,
+                rent: "৳30,000 - 45,000",
+                area: "Bakalia",
+                mapLink: "https://www.google.com/maps?q=Rupnagar+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 19,
+                name: "Reshmi Community Centre",
+                address: "Chawkbazar, Chattogram",
+                phone: "01819-316222",
+                rating: 3.6,
+                rent: "৳35,000 - 50,000",
+                area: "Panchlaish",
+                mapLink: "https://www.google.com/maps?q=Reshmi+Community+Centre+Chattogram",
+                photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 20,
+                name: "White Palace Community Center",
+                address: "Bahaddarhat, Chattogram",
+                phone: "01819-383838",
+                rating: 3.8,
+                rent: "৳50,000 - 80,000",
+                area: "Bahaddarhat",
+                mapLink: "https://www.google.com/maps?q=White+Palace+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1567446537710-0e9b8d4d8c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 21,
+                name: "Ullash Community Center",
+                address: "SS Khaled Road, Chattogram",
+                phone: "031-615632",
+                rating: 4.2,
+                rent: "৳60,000 - 1,00,000",
+                area: "Oxygen",
+                mapLink: "https://www.google.com/maps?q=Ullash+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 22,
+                name: "City Hall Convention Center",
+                address: "Agrabad Access Road, Chattogram",
+                phone: "01713-141516",
+                rating: 4.1,
+                rent: "৳80,000 - 1,40,000",
+                area: "Agrabad",
+                mapLink: "https://www.google.com/maps?q=City+Hall+Convention+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Large Convention"
+            },
+            {
+                id: 23,
+                name: "Orchid Community Center",
+                address: "Zakaria Street, Tigerpass, Chattogram",
+                phone: "01707-161616",
+                rating: 4.0,
+                rent: "৳70,000 - 1,10,000",
+                area: "Panchlaish",
+                mapLink: "https://www.google.com/maps?q=Orchid+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 24,
+                name: "Mishka Community Center",
+                address: "Lalkhan Bazar, Chattogram",
+                phone: "01819-614210",
+                rating: 3.5,
+                rent: "৳35,000 - 55,000",
+                area: "Dampara",
+                mapLink: "https://www.google.com/maps?q=Mishka+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 25,
+                name: "Green Valley Community Center",
+                address: "Chawkbazar, Chattogram",
+                phone: "01711-845522",
+                rating: 3.7,
+                rent: "৳40,000 - 60,000",
+                area: "Khulshi",
+                mapLink: "https://www.google.com/maps?q=Green+Valley+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 26,
+                name: "Abahanu Community Center",
+                address: "Halishahar, Chattogram",
+                phone: "01819-312151",
+                rating: 3.9,
+                rent: "৳50,000 - 85,000",
+                area: "Halishahar",
+                mapLink: "https://www.google.com/maps?q=Abahanu+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 27,
+                name: "Gausia Community Center",
+                address: "Zakir Hossain Rd, Chattogram",
+                phone: "01711-365511",
+                rating: 3.8,
+                rent: "৳45,000 - 70,000",
+                area: "Chawkbazar",
+                mapLink: "https://www.google.com/maps?q=Gausia+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 28,
+                name: "Halishahar Community Center",
+                address: "Empress Road, Chattogram",
+                phone: "031-611145",
+                rating: 4.6,
+                rent: "Member-only",
+                area: "Halishahar",
+                mapLink: "https://www.google.com/maps?q=Halishahar+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 29,
+                name: "Golden Inn Community Center",
+                address: "Chandgaon, Chattogram",
+                phone: "01817-702211",
+                rating: 3.7,
+                rent: "৳40,000 - 65,000",
+                area: "Station Road",
+                mapLink: "https://www.google.com/maps?q=Golden+Inn+Chattogram+Limited",
+                photo: "https://images.unsplash.com/photo-1567446537710-0e9b8d4d8c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Hotel Hall"
+            },
+            {
+                id: 30,
+                name: "Chawkbazar Community Center",
+                address: "GEC / Nasirabad, Chattogram",
+                phone: "01713-104444",
+                rating: 3.9,
+                rent: "৳60,000 - 90,000",
+                area: "Chawkbazar",
+                mapLink: "https://www.google.com/maps?q=Chawkbazar+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 31,
+                name: "Mousumi Community Center",
+                address: "Jamal Khan, Chattogram",
+                phone: "031-615022",
+                rating: 3.8,
+                rent: "৳50,000 - 80,000",
+                area: "West Bakalia",
+                mapLink: "https://www.google.com/maps?q=Mousumi+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 32,
+                name: "Bakalia Community Center",
+                address: "Zakir Hossain Rd, Chattogram",
+                phone: "031-624022",
+                rating: 3.9,
+                rent: "৳40,000 - 70,000",
+                area: "East Bakalia",
+                mapLink: "https://www.google.com/maps?q=Bakalia+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 33,
+                name: "Gulzar Community Center",
+                address: "GEC, Chattogram",
+                phone: "01713-333034",
+                rating: 4.1,
+                rent: "৳60,000 - 1,00,000",
+                area: "Chawkbazar",
+                mapLink: "https://www.google.com/maps?q=Gulzar+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 34,
+                name: "Evergreen Community Center",
+                address: "Jubilee Road, Chattogram",
+                phone: "01819-322111",
+                rating: 3.6,
+                rent: "৳35,000 - 60,000",
+                area: "Chandgaon",
+                mapLink: "https://www.google.com/maps?q=Evergreen+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 35,
+                name: "Niribili Community Center",
+                address: "Agrabad, Chattogram",
+                phone: "01811-484180",
+                rating: 4.0,
+                rent: "৳50,000 - 85,000",
+                area: "Muradpur",
+                mapLink: "https://www.google.com/maps?q=Niribili+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 36,
+                name: "Al-Falah Community Center",
+                address: "Lalkhan Bazar, Chattogram",
+                phone: "031-611295",
+                rating: 4.0,
+                rent: "৳40,000 - 70,000",
+                area: "Lalkhan Bazar",
+                mapLink: "https://www.google.com/maps?q=Al-Falah+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 37,
+                name: "Shahjahani Community Center",
+                address: "Panchlaish, Chattogram",
+                phone: "01711-382211",
+                rating: 3.4,
+                rent: "৳30,000 - 45,000",
+                area: "Patenga",
+                mapLink: "https://www.google.com/maps?q=Shahjahani+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 38,
+                name: "Jamshed Memorial Hall",
+                address: "Enayet Bazar, Chattogram",
+                phone: "01819-312255",
+                rating: 3.5,
+                rent: "৳30,000 - 50,000",
+                area: "Anderkilla",
+                mapLink: "https://www.google.com/maps?q=Jamshed+Memorial+Hall+Chattogram",
+                photo: "https://images.unsplash.com/photo-1567446537710-0e9b8d4d8c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Institutional"
+            },
+            {
+                id: 39,
+                name: "Panna Community Center",
+                address: "Chawkbazar, Chattogram",
+                phone: "01819-365544",
+                rating: 3.3,
+                rent: "৳30,000 - 45,000",
+                area: "Bahaddarhat",
+                mapLink: "https://www.google.com/maps?q=Panna+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 40,
+                name: "Nilima Community Center",
+                address: "Panchlaish, Chattogram",
+                phone: "01819-383838",
+                rating: 4.0,
+                rent: "৳50,000 - 75,000",
+                area: "Nasirabad",
+                mapLink: "https://www.google.com/maps?q=Nilima+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 41,
+                name: "Chandgaon Community Center",
+                address: "Kazir Dewri, Chattogram",
+                phone: "01711-123456",
+                rating: 3.8,
+                rent: "৳40,000 - 70,000",
+                area: "Chandgaon",
+                mapLink: "https://www.google.com/maps?q=Chandgaon+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 42,
+                name: "Bahaddarhat Community Center",
+                address: "Halishahar, Chattogram",
+                phone: "01819-612244",
+                rating: 3.6,
+                rent: "৳35,000 - 55,000",
+                area: "Bahaddarhat",
+                mapLink: "https://www.google.com/maps?q=Bahaddarhat+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 43,
+                name: "Badamtoli Community Center",
+                address: "Muradpur, Chattogram",
+                phone: "01711-332211",
+                rating: 3.4,
+                rent: "৳30,000 - 45,000",
+                area: "Agrabad",
+                mapLink: "https://www.google.com/maps?q=Badamtoli+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 44,
+                name: "Agrabad Access Road Community Center",
+                address: "Bahaddarhat, Chattogram",
+                phone: "01819-313322",
+                rating: 3.5,
+                rent: "৳35,000 - 50,000",
+                area: "Agrabad",
+                mapLink: "https://www.google.com/maps?q=Agrabad+Access+Road+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 45,
+                name: "Shadhona Community Center",
+                address: "Chawkbazar, Chattogram",
+                phone: "01711-885522",
+                rating: 3.7,
+                rent: "৳40,000 - 60,000",
+                area: "South Halishahar",
+                mapLink: "https://www.google.com/maps?q=Shadhona+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 46,
+                name: "Anannya Community Center",
+                address: "Station Road, Chattogram",
+                phone: "031-619514",
+                rating: 3.8,
+                rent: "৳30,000 - 55,000",
+                area: "Oxygen",
+                mapLink: "https://www.google.com/maps?q=Anannya+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 47,
+                name: "Rimjhim Community Center",
+                address: "Nasirabad, Chattogram",
+                phone: "01844-055667",
+                rating: 4.2,
+                rent: "৳70,000 - 1,20,000",
+                area: "Bayazid",
+                mapLink: "https://www.google.com/maps?q=Rimjhim+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1567446537710-0e9b8d4d8c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 48,
+                name: "Moonlight Community Center",
+                address: "Anderkilla, Chattogram",
+                phone: "031-610503",
+                rating: 3.5,
+                rent: "৳25,000 - 45,000",
+                area: "Kattali",
+                mapLink: "https://www.google.com/maps?q=Moonlight+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 49,
+                name: "Dreamland Community Center",
+                address: "Lalkhan Bazar, Chattogram",
+                phone: "01711-721122",
+                rating: 3.9,
+                rent: "৳50,000 - 85,000",
+                area: "Pahartali",
+                mapLink: "https://www.google.com/maps?q=Dreamland+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            },
+            {
+                id: 50,
+                name: "Sunshine Community Center",
+                address: "Agrabad, Chattogram",
+                phone: "01819-312211",
+                rating: 4.0,
+                rent: "৳60,000 - 95,000",
+                area: "Bakalia",
+                mapLink: "https://www.google.com/maps?q=Sunshine+Community+Center+Chattogram",
+                photo: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                category: "Community Center"
+            }
+        ];
+
+        // Initialize favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem('chattogramVenuesFavorites')) || [];
+        let isViewingFavorites = false; // Track if we're viewing favorites only
+        
+        // DOM Elements
+        const centersGrid = document.getElementById('centersGrid');
+        const searchInput = document.getElementById('searchInput');
+        const autocompleteSuggestions = document.getElementById('autocompleteSuggestions');
+        const areaFilter = document.getElementById('areaFilter');
+        const ratingFilter = document.getElementById('ratingFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const sortSelect = document.getElementById('sortSelect');
+        const favoritesCount = document.getElementById('favoritesTotal');
+        const mapModal = document.getElementById('mapModal');
+        const modalMap = document.getElementById('modalMap');
+        const modalClose = document.getElementById('modalClose');
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const viewFavoritesBtn = document.getElementById('viewFavoritesBtn');
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        
+        // Autocomplete state
+        let selectedSuggestionIndex = -1;
+        let currentSuggestions = [];
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate area filter dropdown
+            populateAreaFilter();
+            
+            // Render all convention centers
+            renderCenters(conventionCenters);
+            
+            // Update favorites count
+            updateFavoritesCount();
+            
+            // Add event listeners
+            searchInput.addEventListener('input', function(e) {
+                showAutocompleteSuggestions(e.target.value);
+                filterCenters();
+            });
+            
+            searchInput.addEventListener('keydown', handleSearchKeydown);
+            searchInput.addEventListener('focus', function() {
+                if (searchInput.value.length > 0) {
+                    showAutocompleteSuggestions(searchInput.value);
+                }
+            });
+            
+            // Close suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                const searchBox = searchInput.closest('.search-box');
+                if (searchBox && !searchBox.contains(e.target)) {
+                    hideAutocompleteSuggestions();
+                }
+            });
+            
+            areaFilter.addEventListener('change', filterCenters);
+            ratingFilter.addEventListener('change', filterCenters);
+            priceFilter.addEventListener('change', filterCenters);
+            sortSelect.addEventListener('change', filterCenters);
+            modalClose.addEventListener('click', closeMapModal);
+            mapModal.addEventListener('click', function(e) {
+                if (e.target === mapModal) closeMapModal();
+            });
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // View Favorites button event listener
+            viewFavoritesBtn.addEventListener('click', toggleFavoritesView);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                            // Close mobile menu if open
+                            if (mainNav.classList.contains('active')) {
+                                toggleMobileMenu();
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // View Centers button in hero section
+            document.querySelector('.btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const centersSection = document.getElementById('centers');
+                if (centersSection) {
+                    window.scrollTo({
+                        top: centersSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            // Scroll event listener for scroll-to-top button
+            window.addEventListener('scroll', toggleScrollTopButton);
+            
+            // Initial check for scroll position
+            toggleScrollTopButton();
+
+            // Chatbot setup
+            setupChatbot();
+        });
+        
+        // Populate area filter dropdown with unique areas
+        function populateAreaFilter() {
+            const areas = [...new Set(conventionCenters.map(center => center.area))].sort();
+            areas.forEach(area => {
+                const option = document.createElement('option');
+                option.value = area;
+                option.textContent = area;
+                areaFilter.appendChild(option);
+            });
+        }
+        
+        // Render convention centers to the grid
+        function renderCenters(centers) {
+            centersGrid.innerHTML = '';
+            
+            if (centers.length === 0) {
+                centersGrid.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>No convention centers found</h3>
+                        <p>Try adjusting your search or filters</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            centers.forEach(center => {
+                const isFavorite = favorites.includes(center.id);
+                
+                // Create price range value for filtering
+                const priceValue = getPriceValue(center.rent);
+                
+                const card = document.createElement('div');
+                card.className = 'center-card';
+                card.setAttribute('data-price-range', priceValue);
+                card.setAttribute('data-center-id', center.id);
+                card.innerHTML = `
+                    <div class="card-title-header">
+                        <div class="card-favorite ${isFavorite ? 'active' : ''}" data-id="${center.id}">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h2 class="card-title-logo">${center.name}</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-rating">
+                                <i class="fas fa-star"></i>
+                                <span>${center.rating}</span>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <div class="card-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${center.address}</span>
+                            </div>
+                            <div class="card-detail">
+                                <i class="fas fa-phone"></i>
+                                <span><a href="tel:${formatPhoneForTel(center.phone)}">${center.phone}</a></span>
+                            </div>
+                            <div class="card-detail">
+                                <i class="fas fa-tag"></i>
+                                <span>${center.category}</span>
+                            </div>
+                        </div>
+                        <div class="card-price">${center.rent}</div>
+                        <div class="card-actions">
+                            <a href="${center.mapLink}" target="_blank" rel="noopener noreferrer" class="card-btn btn-secondary">
+                                <i class="fas fa-map-marked-alt"></i> View on Map
+                            </a>
+                            <a href="tel:${formatPhoneForTel(center.phone)}" class="card-btn btn-primary">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                centersGrid.appendChild(card);
+            });
+            
+            // Add event listeners to favorite buttons
+            document.querySelectorAll('.card-favorite').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const centerId = parseInt(this.getAttribute('data-id'));
+                    toggleFavorite(centerId, this);
+                });
+            });
+        }
+        
+        // Filter and sort convention centers based on user input
+        function filterCenters() {
+            // If viewing favorites, show only favorite centers
+            let baseList = isViewingFavorites 
+                ? conventionCenters.filter(center => favorites.includes(center.id))
+                : conventionCenters;
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedArea = areaFilter.value;
+            const minRating = parseFloat(ratingFilter.value) || 0;
+            const priceRange = priceFilter.value;
+            const sortBy = sortSelect.value;
+            
+            let filteredCenters = baseList.filter(center => {
+                // Search filter
+                const matchesSearch = center.name.toLowerCase().includes(searchTerm) || 
+                                     center.address.toLowerCase().includes(searchTerm) ||
+                                     center.area.toLowerCase().includes(searchTerm);
+                
+                // Area filter
+                const matchesArea = !selectedArea || center.area === selectedArea;
+                
+                // Rating filter
+                const matchesRating = center.rating >= minRating;
+                
+                // Price range filter
+                const priceValue = getPriceValue(center.rent);
+                let matchesPrice = true;
+                
+                if (priceRange === 'low') {
+                    matchesPrice = priceValue === 'low';
+                } else if (priceRange === 'medium') {
+                    matchesPrice = priceValue === 'medium';
+                } else if (priceRange === 'high') {
+                    matchesPrice = priceValue === 'high';
+                }
+                
+                return matchesSearch && matchesArea && matchesRating && matchesPrice;
+            });
+            
+            // Sort the filtered centers
+            filteredCenters.sort((a, b) => {
+                switch(sortBy) {
+                    case 'rating':
+                        return b.rating - a.rating;
+                    case 'price-low': {
+                        const aPrice = getPriceNumber(a.rent);
+                        const bPrice = getPriceNumber(b.rent);
+                        const aVal = aPrice === null ? Number.POSITIVE_INFINITY : aPrice;
+                        const bVal = bPrice === null ? Number.POSITIVE_INFINITY : bPrice;
+                        return aVal - bVal;
+                    }
+                    case 'price-high': {
+                        const aPrice = getPriceNumber(a.rent);
+                        const bPrice = getPriceNumber(b.rent);
+                        const aVal = aPrice === null ? Number.NEGATIVE_INFINITY : aPrice;
+                        const bVal = bPrice === null ? Number.NEGATIVE_INFINITY : bPrice;
+                        return bVal - aVal;
+                    }
+                    case 'name':
+                    default:
+                        return a.name.localeCompare(b.name);
+                }
+            });
+            
+            // Render filtered centers
+            renderCenters(filteredCenters);
+        }
+        
+        // Extract numeric price from rent string
+        // Examples handled:
+        // - "৳3,00,000+" -> 300000
+        // - "৳1,80,000 - 2,50,000" -> 180000 (uses first number for filtering)
+        // - "Member-only" -> null
+        function getPriceNumber(rentStr) {
+            if (!rentStr) return null;
+            const str = String(rentStr);
+            const match = str.match(/(\d[\d,]*)/); // capture full number with any commas
+            if (!match) return null;
+            const numeric = parseInt(match[1].replace(/,/g, ''), 10);
+            return Number.isFinite(numeric) ? numeric : null;
+        }
+
+        // Get price range category from rent string
+        function getPriceValue(rentStr) {
+            const rentNum = getPriceNumber(rentStr);
+            if (rentNum === null) return 'unknown';
+            if (rentNum < 50000) return 'low';
+            if (rentNum <= 100000) return 'medium';
+            return 'high';
+        }
+        
+        // Show autocomplete suggestions based on search input
+        function showAutocompleteSuggestions(query) {
+            if (!query || query.trim().length === 0) {
+                hideAutocompleteSuggestions();
+                return;
+            }
+            
+            const searchTerm = query.toLowerCase().trim();
+            const suggestions = [];
+            
+            // Search through convention centers
+            conventionCenters.forEach(center => {
+                const nameMatch = center.name.toLowerCase().includes(searchTerm);
+                const addressMatch = center.address.toLowerCase().includes(searchTerm);
+                const areaMatch = center.area.toLowerCase().includes(searchTerm);
+                const categoryMatch = center.category.toLowerCase().includes(searchTerm);
+                
+                if (nameMatch || addressMatch || areaMatch || categoryMatch) {
+                    // Determine match type for display
+                    let matchType = 'name';
+                    if (nameMatch) matchType = 'name';
+                    else if (areaMatch) matchType = 'area';
+                    else if (addressMatch) matchType = 'address';
+                    else if (categoryMatch) matchType = 'category';
+                    
+                    suggestions.push({
+                        center: center,
+                        matchType: matchType
+                    });
+                }
+            });
+            
+            // Limit to 8 suggestions
+            currentSuggestions = suggestions.slice(0, 8);
+            selectedSuggestionIndex = -1;
+            
+            if (currentSuggestions.length > 0) {
+                renderAutocompleteSuggestions();
+                autocompleteSuggestions.classList.add('active');
+            } else {
+                hideAutocompleteSuggestions();
+            }
+        }
+        
+        // Render autocomplete suggestions
+        function renderAutocompleteSuggestions() {
+            autocompleteSuggestions.innerHTML = '';
+            
+            currentSuggestions.forEach((suggestion, index) => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                item.setAttribute('data-index', index);
+                
+                const icon = suggestion.matchType === 'name' ? 'fa-building' : 
+                             suggestion.matchType === 'area' ? 'fa-map-marker-alt' :
+                             suggestion.matchType === 'address' ? 'fa-location-dot' : 'fa-tag';
+                
+                item.innerHTML = `
+                    <i class="fas ${icon}"></i>
+                    <span class="suggestion-name">${suggestion.center.name}</span>
+                    <span class="suggestion-details">${suggestion.center.area}</span>
+                    <span class="suggestion-area">${suggestion.center.category}</span>
+                `;
+                
+                item.addEventListener('click', function() {
+                    selectSuggestion(suggestion.center);
+                });
+                
+                item.addEventListener('mouseenter', function() {
+                    removeHighlight();
+                    selectedSuggestionIndex = index;
+                    item.classList.add('highlighted');
+                });
+                
+                autocompleteSuggestions.appendChild(item);
+            });
+        }
+        
+        // Hide autocomplete suggestions
+        function hideAutocompleteSuggestions() {
+            autocompleteSuggestions.classList.remove('active');
+            selectedSuggestionIndex = -1;
+        }
+        
+        // Select a suggestion
+        function selectSuggestion(center) {
+            searchInput.value = center.name;
+            hideAutocompleteSuggestions();
+            filterCenters();
+            scrollToResults();
+        }
+        
+        // Handle keyboard navigation in search input
+        function handleSearchKeydown(e) {
+            const items = autocompleteSuggestions.querySelectorAll('.suggestion-item');
+            const isAutocompleteActive = autocompleteSuggestions.classList.contains('active');
+            
+            switch(e.key) {
+                case 'ArrowDown':
+                    if (isAutocompleteActive) {
+                        e.preventDefault();
+                        selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, items.length - 1);
+                        updateHighlight(items);
+                    }
+                    break;
+                    
+                case 'ArrowUp':
+                    if (isAutocompleteActive) {
+                        e.preventDefault();
+                        selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, -1);
+                        updateHighlight(items);
+                    }
+                    break;
+                    
+                case 'Enter':
+                    e.preventDefault();
+                    if (isAutocompleteActive && selectedSuggestionIndex >= 0 && currentSuggestions[selectedSuggestionIndex]) {
+                        // Select suggestion if one is highlighted (scrollToResults is called inside selectSuggestion)
+                        selectSuggestion(currentSuggestions[selectedSuggestionIndex].center);
+                    } else {
+                        // If no suggestion selected, just perform search and scroll to results
+                        hideAutocompleteSuggestions();
+                        filterCenters();
+                        scrollToResults();
+                    }
+                    break;
+                    
+                case 'Escape':
+                    hideAutocompleteSuggestions();
+                    searchInput.blur();
+                    break;
+            }
+        }
+        
+        // Scroll to results section
+        function scrollToResults() {
+            const resultsSection = document.querySelector('.centers-section');
+            if (resultsSection) {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: resultsSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }, 100); // Small delay to ensure results are rendered
+            }
+        }
+        
+        // Update highlight for keyboard navigation
+        function updateHighlight(items) {
+            removeHighlight();
+            if (selectedSuggestionIndex >= 0 && items[selectedSuggestionIndex]) {
+                items[selectedSuggestionIndex].classList.add('highlighted');
+                items[selectedSuggestionIndex].scrollIntoView({ block: 'nearest' });
+            }
+        }
+        
+        // Remove all highlights
+        function removeHighlight() {
+            autocompleteSuggestions.querySelectorAll('.suggestion-item').forEach(item => {
+                item.classList.remove('highlighted');
+            });
+        }
+        
+        // Format phone number for tel: link (remove hyphens, spaces, and ensure proper format)
+        function formatPhoneForTel(phoneStr) {
+            if (!phoneStr) return '';
+            
+            // Remove all non-digit characters except + at the start
+            let cleaned = phoneStr.replace(/[^\d+]/g, '');
+            
+            // If it already starts with +, return as is
+            if (cleaned.startsWith('+')) {
+                return cleaned;
+            }
+            
+            // If it starts with 0 (Bangladesh local format), replace with +880
+            if (cleaned.startsWith('0')) {
+                return '+880' + cleaned.substring(1);
+            }
+            
+            // If it's a 10-11 digit number (Bangladesh mobile), add +880
+            if (cleaned.length >= 10 && cleaned.length <= 11) {
+                return '+880' + cleaned;
+            }
+            
+            // For other cases, return cleaned number (will work on most devices)
+            return cleaned;
+        }
+        
+        // Toggle favorite status for a convention center
+        function toggleFavorite(centerId, element) {
+            const index = favorites.indexOf(centerId);
+            
+            if (index === -1) {
+                // Add to favorites
+                favorites.push(centerId);
+                element.classList.add('active');
+            } else {
+                // Remove from favorites
+                favorites.splice(index, 1);
+                element.classList.remove('active');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('chattogramVenuesFavorites', JSON.stringify(favorites));
+            
+            // Update favorites count
+            updateFavoritesCount();
+        }
+        
+        // Update favorites count display
+        function updateFavoritesCount() {
+            favoritesCount.textContent = favorites.length;
+        }
+        
+        // Toggle between all centers and favorites only
+        function toggleFavoritesView() {
+            isViewingFavorites = !isViewingFavorites;
+            
+            // Update button appearance
+            viewFavoritesBtn.classList.toggle('active');
+            
+            // Disable/enable filters when viewing favorites
+            searchInput.disabled = isViewingFavorites;
+            areaFilter.disabled = isViewingFavorites;
+            ratingFilter.disabled = isViewingFavorites;
+            priceFilter.disabled = isViewingFavorites;
+            sortSelect.disabled = isViewingFavorites;
+            
+            // Update button text
+            if (isViewingFavorites) {
+                viewFavoritesBtn.innerHTML = '<i class="fas fa-heart"></i> Show All (<span id="favoritesTotal">' + favorites.length + '</span>)';
+            } else {
+                viewFavoritesBtn.innerHTML = '<i class="fas fa-heart"></i> View Favorites (<span id="favoritesTotal">' + favorites.length + '</span>)';
+            }
+            
+            // Render the appropriate centers
+            if (isViewingFavorites) {
+                if (favorites.length === 0) {
+                    centersGrid.innerHTML = `
+                        <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <i class="fas fa-heart" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                            <h3>No favorites yet</h3>
+                            <p>Click the heart icon on any center card to add it to your favorites</p>
+                        </div>
+                    `;
+                } else {
+                    const favoritesCenters = conventionCenters.filter(center => favorites.includes(center.id));
+                    renderCenters(favoritesCenters);
+                }
+            } else {
+                // Reset filters and render all centers
+                searchInput.value = '';
+                areaFilter.value = '';
+                ratingFilter.value = '0';
+                priceFilter.value = '';
+                sortSelect.value = 'name';
+                filterCenters();
+            }
+        }
+        
+        // Open map modal with embedded Google Maps
+        function openMapModal(mapUrl, centerName) {
+            // Set the map iframe source
+            modalMap.src = mapUrl;
+            
+            // Update modal title
+            document.querySelector('.modal-title').textContent = centerName;
+            
+            // Show modal
+            mapModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Close map modal
+        function closeMapModal() {
+            mapModal.classList.remove('active');
+            modalMap.src = ''; // Clear iframe source
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mainNav.classList.toggle('active');
+            
+            // Change menu icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Show/hide scroll-to-top button
+        function toggleScrollTopButton() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        }
+        
+        // Scroll to top when button is clicked
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ---------- AI Venue Helper Chatbot ----------
+        const chatState = {
+            step: 'greeting',
+            preferences: {
+                eventType: null,
+                budget: null,
+                area: null
+            }
+        };
+
+        function setupChatbot() {
+            if (!chatbotToggle || !chatbotWindow) return;
+
+            chatbotToggle.addEventListener('click', toggleChatbotWindow);
+            chatbotClose.addEventListener('click', closeChatbotWindow);
+            chatbotSend.addEventListener('click', () => {
+                const text = chatbotInput.value.trim();
+                if (text) {
+                    handleUserText(text);
+                }
+            });
+            chatbotInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const text = chatbotInput.value.trim();
+                    if (text) {
+                        handleUserText(text);
+                    }
+                }
+            });
+
+            // When user clicks a suggested venue in the chat, scroll to that card
+            if (chatbotMessages) {
+                chatbotMessages.addEventListener('click', (e) => {
+                    const item = e.target.closest('.chat-suggestion-item');
+                    if (!item) return;
+                    const idStr = item.getAttribute('data-center-id');
+                    const centerId = idStr ? parseInt(idStr, 10) : NaN;
+                    if (!Number.isFinite(centerId)) return;
+                    focusOnRecommendationById(centerId);
+                });
+            }
+
+            // Start conversation after a short delay so it feels natural
+            setTimeout(() => {
+                openChatbotWindow();
+                chatbotIntro();
+            }, 1600);
+        }
+
+        function toggleChatbotWindow() {
+            if (chatbotWindow.classList.contains('active')) {
+                closeChatbotWindow();
+            } else {
+                openChatbotWindow();
+            }
+        }
+
+        function openChatbotWindow() {
+            chatbotWindow.classList.add('active');
+        }
+
+        function closeChatbotWindow() {
+            chatbotWindow.classList.remove('active');
+        }
+
+        function chatbotIntro() {
+            chatbotMessages.innerHTML = '';
+            addBotMessage("Hi! I am your **Venue Helper AI** for Chattogram.");
+            setTimeout(() => {
+                addBotMessage("I will ask 2–3 very easy questions and then show you perfect halls from the list on this website.");
+                setTimeout(() => {
+                    askEventType();
+                }, 900);
+            }, 900);
+        }
+
+        function addBotMessage(text, options = []) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-message bot';
+
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble bot';
+            bubble.innerHTML = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            msg.appendChild(bubble);
+
+            if (options && options.length) {
+                const optionContainer = document.createElement('div');
+                optionContainer.className = 'chatbot-quick-options';
+
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'chatbot-chip';
+                    btn.textContent = opt.label;
+                    btn.addEventListener('click', () => {
+                        handleQuickOption(opt);
+                    });
+                    optionContainer.appendChild(btn);
+                });
+
+                bubble.appendChild(optionContainer);
+            }
+
+            chatbotMessages.appendChild(msg);
+            scrollChatToBottom();
+        }
+
+        function addUserMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-message user';
+
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble user';
+            bubble.textContent = text;
+
+            msg.appendChild(bubble);
+            chatbotMessages.appendChild(msg);
+            scrollChatToBottom();
+        }
+
+        function scrollChatToBottom() {
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function handleQuickOption(opt) {
+            addUserMessage(opt.label);
+            const wait = 750;
+            if (opt.type === 'event') {
+                chatState.preferences.eventType = opt.value;
+                chatState.step = 'budget';
+                setTimeout(() => {
+                    askBudget();
+                }, wait);
+            } else if (opt.type === 'budget') {
+                chatState.preferences.budget = opt.value;
+                chatState.step = 'area';
+                setTimeout(() => {
+                    askArea();
+                }, wait);
+            } else if (opt.type === 'area') {
+                chatState.preferences.area = opt.value;
+                chatState.step = 'done';
+                setTimeout(() => {
+                    showRecommendations();
+                }, wait);
+            } else if (opt.type === 'restart') {
+                chatState.step = 'greeting';
+                chatState.preferences = { eventType: null, budget: null, area: null };
+                setTimeout(() => {
+                    chatbotIntro();
+                }, wait);
+            }
+        }
+
+        function handleUserText(text) {
+            addUserMessage(text);
+            chatbotInput.value = '';
+
+            const lower = text.toLowerCase();
+
+            // Let users type free text like "cheap wedding hall in agrabad"
+            // Simple extraction based on keywords.
+            if (chatState.step === 'greeting') {
+                // Try to guess all in one go
+                chatState.preferences.eventType = guessEventType(lower) || chatState.preferences.eventType;
+                chatState.preferences.budget = guessBudget(lower) || chatState.preferences.budget;
+                chatState.preferences.area = guessArea(lower) || chatState.preferences.area;
+
+                const wait = 800;
+                if (!chatState.preferences.eventType) {
+                    chatState.step = 'event';
+                    setTimeout(() => askEventType(), wait);
+                    return;
+                }
+                if (!chatState.preferences.budget) {
+                    chatState.step = 'budget';
+                    setTimeout(() => askBudget(), wait);
+                    return;
+                }
+                if (!chatState.preferences.area) {
+                    chatState.step = 'area';
+                    setTimeout(() => askArea(), wait);
+                    return;
+                }
+                chatState.step = 'done';
+                setTimeout(() => showRecommendations(), wait);
+                return;
+            }
+
+            if (chatState.step === 'event') {
+                const ev = guessEventType(lower);
+                if (ev) {
+                    chatState.preferences.eventType = ev;
+                    chatState.step = 'budget';
+                    setTimeout(() => askBudget(), 800);
+                } else {
+                    addBotMessage("I did not fully catch that. Please pick one of the blue buttons so I can help correctly.");
+                    setTimeout(() => askEventType(), 800);
+                }
+                return;
+            }
+
+            if (chatState.step === 'budget') {
+                const budget = guessBudget(lower);
+                if (budget) {
+                    chatState.preferences.budget = budget;
+                    chatState.step = 'area';
+                    setTimeout(() => askArea(), 800);
+                } else {
+                    addBotMessage("Please choose if you want a **Low**, **Medium**, or **High / Premium** budget hall.");
+                    setTimeout(() => askBudget(), 800);
+                }
+                return;
+            }
+
+            if (chatState.step === 'area') {
+                const area = guessArea(lower);
+                if (area) {
+                    chatState.preferences.area = area;
+                    chatState.step = 'done';
+                    setTimeout(() => showRecommendations(), 900);
+                } else {
+                    addBotMessage("Please type or choose an area from the list (for example: **Agrabad**, **GEC Circle**, **Panchlaish**).");
+                    setTimeout(() => askArea(), 900);
+                }
+                return;
+            }
+
+            // After we are done, treat any text as "ask again"
+            if (chatState.step === 'done') {
+                addBotMessage("Let’s find another venue for you.");
+                chatState.step = 'greeting';
+                chatState.preferences = { eventType: null, budget: null, area: null };
+                setTimeout(() => chatbotIntro(), 900);
+            }
+        }
+
+        function askEventType() {
+            chatState.step = 'event';
+            addBotMessage(
+                "What kind of event are you planning? Just tap one button:",
+                [
+                    { label: "Wedding / Reception", type: "event", value: "wedding" },
+                    { label: "Corporate / Seminar", type: "event", value: "corporate" },
+                    { label: "Birthday / Small party", type: "event", value: "party" },
+                    { label: "Any type is okay", type: "event", value: "any" }
+                ]
+            );
+        }
+
+        function askBudget() {
+            addBotMessage(
+                "What is your budget level for venue rent?",
+                [
+                    { label: "Low (under ৳50,000)", type: "budget", value: "low" },
+                    { label: "Medium (৳50,000 – ৳1,00,000)", type: "budget", value: "medium" },
+                    { label: "High / Premium (৳1,00,000+)", type: "budget", value: "high" },
+                    { label: "Any budget", type: "budget", value: "any" }
+                ]
+            );
+        }
+
+        function askArea() {
+            const uniqueAreas = [...new Set(conventionCenters.map(c => c.area))].sort();
+            const sampleAreas = uniqueAreas.slice(0, 6);
+            const areaButtons = sampleAreas.map(a => ({ label: a, type: 'area', value: a }));
+
+            addBotMessage(
+                "Which area of Chattogram do you prefer? You can tap a button or type an area name.",
+                areaButtons
+            );
+        }
+
+        function guessEventType(text) {
+            if (text.includes('wedding') || text.includes('reception') || text.includes('biya')) return 'wedding';
+            if (text.includes('corporate') || text.includes('office') || text.includes('seminar') || text.includes('conference') || text.includes('meeting')) return 'corporate';
+            if (text.includes('birthday') || text.includes('party') || text.includes('small')) return 'party';
+            return null;
+        }
+
+        function guessBudget(text) {
+            if (text.includes('cheap') || text.includes('low') || text.includes('less') || text.includes('budget')) return 'low';
+            if (text.includes('medium') || text.includes('mid')) return 'medium';
+            if (text.includes('high') || text.includes('premium') || text.includes('expensive') || text.includes('vip')) return 'high';
+            return null;
+        }
+
+        function guessArea(text) {
+            const areas = [...new Set(conventionCenters.map(c => c.area))];
+            const lowerText = text.toLowerCase();
+            for (const area of areas) {
+                if (lowerText.includes(area.toLowerCase())) {
+                    return area;
+                }
+            }
+            return null;
+        }
+
+        function showRecommendations() {
+            const { eventType, budget, area } = chatState.preferences;
+
+            let list = [...conventionCenters];
+
+            // Filter by budget
+            if (budget && budget !== 'any') {
+                list = list.filter(c => getPriceValue(c.rent) === budget);
+            }
+
+            // Filter by area
+            if (area) {
+                list = list.filter(c => c.area === area);
+            }
+
+            // Slight preference by type (premium / ballroom for corporate & wedding)
+            if (eventType && eventType !== 'any') {
+                list.sort((a, b) => scoreCenter(b, eventType) - scoreCenter(a, eventType));
+            } else {
+                list.sort((a, b) => b.rating - a.rating);
+            }
+
+            const top = list.slice(0, 4);
+
+            if (!top.length) {
+                addBotMessage("I could not find a strong match with those filters. I will relax the budget and show some highly rated venues instead.");
+                const fallback = [...conventionCenters].sort((a, b) => b.rating - a.rating).slice(0, 4);
+                renderRecommendationMessage(fallback, true);
+                focusOnRecommendationCenter(fallback[0]);
+            } else {
+                renderRecommendationMessage(top, false);
+                focusOnRecommendationCenter(top[0]);
+            }
+        }
+
+        function scoreCenter(center, eventType) {
+            let score = center.rating || 0;
+
+            if (eventType === 'wedding') {
+                if (center.category.includes('Premium') || center.category.includes('Hotel')) score += 0.6;
+            }
+            if (eventType === 'corporate') {
+                if (center.category.includes('Hotel') || center.category.includes('Convention')) score += 0.6;
+            }
+            if (eventType === 'party') {
+                if (center.category.includes('Community') || center.category.includes('Popular')) score += 0.4;
+            }
+
+            return score;
+        }
+
+        function renderRecommendationMessage(list, isFallback) {
+            const { budget, area } = chatState.preferences;
+
+            let intro = "Here are some venue matches for you:";
+            if (!isFallback) {
+                const parts = [];
+                if (budget && budget !== 'any') {
+                    if (budget === 'low') parts.push("**low budget**");
+                    if (budget === 'medium') parts.push("**medium budget**");
+                    if (budget === 'high') parts.push("**high / premium budget**");
+                }
+                if (area) {
+                    parts.push("in **" + area + "**");
+                }
+                if (parts.length) {
+                    intro = "Great! I found some venues that match " + parts.join(' ') + ":";
+                }
+            }
+
+            const suggestionHtml = list.map(c => {
+                const priceLabel = c.rent || 'Price on call';
+                return `<div class="chat-suggestion-item" data-center-id="${c.id}">
+                    <strong>${c.name}</strong><br>
+                    Area: ${c.area} • Rating: ${c.rating} ⭐<br>
+                    Rent: ${priceLabel}<br>
+                    <span style="font-size:0.78rem;">You can scroll down to the cards section, search for “${c.name}”, and tap **Call Now** or **View on Map**.</span>
+                </div>`;
+            }).join('');
+
+            const restartBtn = [
+                { label: "Find another venue", type: "restart", value: "restart" }
+            ];
+
+            addBotMessage(intro + `<div class="chat-suggestion-list">${suggestionHtml}</div>`, restartBtn);
+        }
+
+        // When AI suggests a center, focus the main page on that center list
+        function focusOnRecommendationCenter(center) {
+            if (!center || !searchInput) return;
+
+            // If user is in "favorites view", switch back to all so the card exists
+            if (typeof isViewingFavorites !== 'undefined' && isViewingFavorites && typeof toggleFavoritesView === 'function') {
+                toggleFavoritesView();
+            }
+
+            // Put the recommended center name into the main search box
+            searchInput.value = center.name;
+
+            // Hide any autocomplete, then filter and scroll to cards
+            if (typeof hideAutocompleteSuggestions === 'function') {
+                hideAutocompleteSuggestions();
+            }
+
+            if (typeof filterCenters === 'function') {
+                filterCenters();
+            }
+
+            // After cards are re-rendered, scroll to the specific card
+            setTimeout(() => {
+                scrollToCenterCardById(center.id);
+            }, 200);
+        }
+
+        function focusOnRecommendationById(centerId) {
+            const center = conventionCenters.find(c => c.id === centerId);
+            if (!center) return;
+            focusOnRecommendationCenter(center);
+        }
+
+        function scrollToCenterCardById(centerId) {
+            const card = document.querySelector(`.center-card[data-center-id="${centerId}"]`);
+            if (!card) {
+                // As a fallback, just scroll to the results section
+                if (typeof scrollToResults === 'function') {
+                    scrollToResults();
+                }
+                return;
+            }
+
+            const rect = card.getBoundingClientRect();
+            const offsetTop = rect.top + window.scrollY - 100; // account for fixed header
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            card.classList.add('highlight');
+            setTimeout(() => {
+                card.classList.remove('highlight');
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
